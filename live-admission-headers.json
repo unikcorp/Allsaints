@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "headers": {
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "no-store, no-cache, must-revalidate",
+    "cf-cache-status": "DYNAMIC",
+    "cf-ray": "a5847fca2d3ad5ee-MAA",
+    "connection": "keep-alive",
+    "content-encoding": "br",
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Tue, 10 Nov 2026 10:50:57 GMT",
+    "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "pragma": "no-cache",
+    "referrer-policy": "same-origin",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=sjS%2BG6dDBtanubhtWSWyacXO0zyl72kSMD%2BMCdXzOdYrhPAZocepEXYE%2BC3KPaLWqdAv7VC5MKPAWg7g5nH7jvggp%2B2vYkkJk2UQ5ihGNZwWY4u%2BVbNJQR0fF3PqhjXtVcMADX4y%2BqnW0shxW9fILIFLAwxHFqft\"}]}",
+    "server": "cloudflare",
+    "set-cookie": "ci_session=40f4e78b2b118d1f06a6d6ee9ea612ef; expires=Tue, 10 Nov 2026 12:50:57 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax",
+    "transfer-encoding": "chunked",
+    "vary": "Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "SAMEORIGIN",
+    "x-permitted-cross-domain-policies": "master-only",
+    "x-xss-protection": "1; mode=block"
+  }
+}

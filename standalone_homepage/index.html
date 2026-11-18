@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Saints Public School, Adoor | To Create Creators</title>
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-size: 16px;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333333;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .top-banner {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .top-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ─── Admissions Callout ─────────────────────────────────────────── */
+    .admission-callout-wrap {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .admission-callout-box {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+      border-left: 5px solid #B22222;
+      border-right: 1px solid #e2e8f0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 25px -5px rgba(178, 34, 34, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    }
+
+    .admission-callout-text {
+      text-align: left;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .admission-badge {
+      background: #B22222;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .admission-callout-text h3 {
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 24px;
+      color: #1e293b;
+      margin: 0 0 6px 0;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .admission-callout-text p {
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 15px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .admission-pulse-btn {
+      background: #B22222;
+      color: #ffffff;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 14px rgba(178, 34, 34, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      animation: gentleAttract 2.5s infinite ease-in-out;
+      white-space: nowrap;
+    }
+
+    .admission-pulse-btn:hover {
+      background: #8b0000 !important;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(178, 34, 34, 0.5) !important;
+      animation-play-state: paused;
+    }
+
+    @keyframes gentleAttract {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 14px rgba(178, 34, 34, 0.3);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 6px 20px rgba(178, 34, 34, 0.5);
+      }
+    }
+
+    /* ─── Motto Section ──────────────────────────────────────────────── */
+    .motto {
+      padding: 80px 0;
+      text-align: center;
+      background: #f8fafc;
+      position: relative;
+    }
+
+    .motto-box {
+      background: #ffffff;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 3rem 2.5rem;
+      border-radius: 30px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid #B22222;
+      transition: all 0.3s ease;
+    }
+
+    .motto-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+      animation: mottoFloat 6s ease-in-out infinite;
+    }
+
+    .motto-box:hover {
+      border-top: 4px solid #B22222;
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+      transition-duration: 300ms;
+    }
+
+    @keyframes mottoFloat {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1deg); }
+    }
+
+    .motto-heading {
+      font-size: 32px;
+      font-weight: 700;
+      color: #B22222;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .motto-quote {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      line-height: 1.3;
+    }
+
+    .motto-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 19px;
+      color: #64748b;
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
+      text-align: justify;
+    }
+
+    /* ─── Edu Features (Our Specialities) ────────────────────────────── */
+    .edu-features-section {
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+
+    .edu-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .edu-feature-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .edu-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(178, 34, 34, 0.12);
+      border-color: #cbd5e1;
+    }
+
+    .edu-feature-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .edu-feature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .edu-feature-card:hover .edu-feature-img img {
+      transform: scale(1.06);
+    }
+
+    .edu-feature-content {
+      padding: 22px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .edu-feature-content h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .edu-feature-content p {
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 14.5px;
+      margin: 0;
+    }
+
+    @media (max-width: 992px) {
+      .edu-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .edu-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── Management Team ────────────────────────────────────────────── */
+    .team {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 3rem;
+      line-height: 1.3;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .team-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #dda6a6, #B22222);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px rgba(178, 34, 34, 0.12);
+      border-color: #cbd5e1;
+    }
+
+    .team-card:hover::before {
+      opacity: 1;
+    }
+
+    .team-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 16%;
+      margin: 0 auto 1.75rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      flex-shrink: 0;
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .team-card:hover .team-avatar {
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgba(178, 34, 34, 0.15);
+    }
+
+    .team-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+    }
+
+    .team-card:hover h3 {
+      color: #B22222;
+    }
+
+    .team-card p {
+      font-size: 15px;
+      font-weight: 700;
+      color: #B22222;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    @media (max-width: 992px) {
+      .team-avatar {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .team-card {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    /* ─── Programs ───────────────────────────────────────────────────── */
+    .programs {
+      padding: 80px 0;
+      background: #f8fafc;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .program-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid #B22222;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+    }
+
+    .program-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 32px;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .program-card h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .program-card p {
+      color: #64748b;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* ─── Features (Why Choose Us) ───────────────────────────────────── */
+    .features {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: inherit;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 28.8px;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      flex-shrink: 0;
+    }
+
+    .feature-item h3 {
+      font-size: 20.8px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    /* ─── Location ───────────────────────────────────────────────────── */
+    .location {
+      padding: 80px 0;
+      background: #f8fafc;
+    }
+
+    .map-container {
+      max-width: 1000px;
+      margin: 4rem auto 0;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      height: 500px;
+      position: relative;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(0.1) contrast(1.1);
+      transition: filter 0.3s ease;
+      display: block;
+    }
+
+    .map-container:hover iframe {
+      filter: grayscale(0) contrast(1.2) brightness(1.05);
+    }
+
+    .map-info {
+      background: #ffffff;
+      max-width: 800px;
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 2rem auto 0;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid #B22222;
+    }
+
+    .map-heading {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .map-address {
+      font-size: 19.2px;
+      color: #64748b;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* ─── Responsive Media Queries ───────────────────────────────────── */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      .section-title {
+        font-size: 32px;
+      }
+      .motto-quote {
+        font-size: 28.8px;
+      }
+      .edu-features-grid {
+        grid-template-columns: 1fr;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .team-avatar {
+        width: 100px;
+        height: 100px;
+      }
+      .team-card {
+        padding: 2rem 1.5rem;
+      }
+      .map-container {
+        height: 350px;
+        margin-top: 2rem;
+      }
+      .admission-callout-box {
+        padding: 24px 20px;
+      }
+      .admission-pulse-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Admissions Open Callout ────────────────────────────────────── -->
+  <div class="admission-callout-wrap">
+    <div class="admission-callout-box">
+      <div class="admission-callout-text">
+        <span class="admission-badge">Admissions Open 2026-27</span>
+        <h3>Shape Your Child's Future Today</h3>
+        <p>Join a community dedicated to creating creators. Secure enrollment for the upcoming academic term.</p>
+      </div>
+
+      <div style="display:flex; align-items:center;">
+        <a class="admission-pulse-btn" href="https://allsaintspublicschool.com/admin/onlinestudent">
+          Apply Now <i class="fas fa-arrow-right" style="font-size:13px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Motto ──────────────────────────────────────────────────────── -->
+  <section class="motto">
+    <div class="container">
+      <div class="motto-box">
+        <h2 class="motto-heading">Our Motto</h2>
+
+        <blockquote class="motto-quote">“To Create Creators”</blockquote>
+
+        <blockquote class="motto-quote">स्रष्टून् स्रष्टुम् (Sanskrit)</blockquote>
+
+        <blockquote class="motto-quote">(“Srashtoon Srashtum”)</blockquote>
+
+        <p class="motto-text">
+          With resolute conviction that education is for creating creators and not consumers, both the disciple and the Guru in its process being the Image and Likeness of God, the Creator as well as humanity as a whole has been divinely assigned with the task of filling and subduing the universe and hence cannot but innately be creators and thus His co-creators, envisioning our every progeny dynamically and productively partake in fashioning the universe ever fresh, we shouldered a celestial vocation - establishing and running a top- rated academic institution in a rural area for faultlessly producing infinite tiptop creators to stimulate accomplishing the divinely assigned human task and hence, the motto.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Features (Specialities) ────────────────────────────────────── -->
+  <section class="edu-features-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center; font-size:36px; font-weight:700; color:#1e293b; margin-bottom:15px;">
+        Our Specialities
+      </h2>
+
+      <p style="text-align:center; color:#64748b; max-width:600px; margin:0 auto 40px auto; font-size:16px;">
+        Nurturing young minds through holistic development paths engineered to transform consumers into future creators.
+      </p>
+
+      <div class="edu-features-grid">
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="Individual Attention" src="https://allsaintspublicschool.com/uploads/gallery/media/1773902398-212600336869bb9a3e5ae72!infra1.jpg?1773903267" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>Individual Attention</h4>
+            <p>Recognizing that every child possesses a unique spark, we track personal milestones to foster potential in an inclusive environment.</p>
+          </div>
+        </div>
+
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="Exploring Creativity" src="https://allsaintspublicschool.com/uploads/gallery/media/1780294279-1031441776a1d228799461!library.jpg?1780294279" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>Experiential Discovery</h4>
+            <p>Education at our campus is designed to provoke natural curiosity, steering child pathways beyond textbooks into creative design logic.</p>
+          </div>
+        </div>
+
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="Career Training" src="https://allsaintspublicschool.com/uploads/gallery/media/1780295206-18065481966a1d26262e229!Studying while working in uk.jpeg?1780295206" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>Career-Oriented Training</h4>
+            <p>Ensuring clear bridges to professional sectors, our senior curriculum sharpens fundamental leadership attributes and technological aptitudes.</p>
+          </div>
+        </div>
+
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="World-Class Infrastructure" src="https://allsaintspublicschool.com/uploads/gallery/media/1780295522-14530323546a1d2762824d9!8aacf232b20d964783c0f09baef6b036.jpg?1780295523" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>World-Class Infrastructure</h4>
+            <p>Equipped with spacious interactive classrooms, modern resources, and premium facilities aligned beautifully with international educational benchmarks.</p>
+          </div>
+        </div>
+
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="Sports and Physical Culture" src="https://allsaintspublicschool.com/uploads/gallery/media/1774685585-96686839769c78d9152c1b!WhatsApp Image 2026-03-03 at 11.50.59 AM.jpeg?1780294768" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>Physical Culture &amp; Sports</h4>
+            <p>Promoting resilience and sportsmanship through comprehensive training tracks, specialized clubs, martial arts, and diverse track events.</p>
+          </div>
+        </div>
+
+        <div class="edu-feature-card">
+          <div class="edu-feature-img">
+            <img alt="Value-Based Leadership" src="https://allsaintspublicschool.com/uploads/gallery/media/1774684577-162147596969c789a1464f5!farm4.jpeg?1780295642" />
+          </div>
+          <div class="edu-feature-content">
+            <h4>Value-Driven Foundation</h4>
+            <p>Rooting technical skill inside a background of ethical core principles, character design frameworks, and proactive civic responsibilities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Management Team ────────────────────────────────────────────── -->
+  <section class="team">
+    <div class="container">
+      <h2 class="section-title">Our Management Team</h2>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img alt="His Excellency Most Rev Dr. Samuel Mar Irenios" src="https://allsaintspublicschool.com/uploads/gallery/media/1773902901-59259813969bb9c355bedc!patron.jpg?1780295642" />
+          </div>
+          <h3>His Excellency Most Rev.<br />Dr. Samuel Mar Irenios</h3>
+          <p>Patron</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img alt="His Excellency Most Rev. Yoohanon Mar Chrysostom" src="https://allsaintspublicschool.com/uploads/gallery/media/1773902901-88005238269bb9c355a8d1!former patron.jpg?1780295642" />
+          </div>
+          <h3>His Excellency Most Rev.<br />Yoohanon Mar Chrysostom</h3>
+          <p>Former Patron</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img alt="Rev. Dr. James Stephen Olikal" src="https://allsaintspublicschool.com/uploads/gallery/media/1780297085-14214642996a1d2d7d54b7f!principal22.jpg?1780297085" />
+          </div>
+          <h3>Rev. Dr. James (Joseph) Stephen Olikal</h3>
+          <p>Principal</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img alt="Fr. Philipose Charivupurayidathil" src="https://allsaintspublicschool.com/uploads/gallery/media/thumb/1773902565-39409666869bb9ae5aad30!thumb_WhatsApp%20Image%202026-03-18%20at%207.45.11%20PM.jpeg?1773902901" />
+          </div>
+          <h3>Fr. Philipose Charivupurayidathil (Jobin C Kurian)</h3>
+          <p>Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Programs ───────────────────────────────────────────────────── -->
+  <section class="programs">
+    <div class="container">
+      <h2 class="section-title">Our Programs</h2>
+
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Primary Education</h3>
+          <p>Foundation years (Grades 1-5) focusing on play-based learning, foundational skills, and character development through interactive methods.</p>
+        </div>
+
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Secondary Education</h3>
+          <p>Grades 6-10 curriculum emphasizing critical thinking, STEM foundation, arts, and comprehensive subject mastery with project-based learning.</p>
+        </div>
+
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Higher Secondary</h3>
+          <p>Grades 11-12 with specialized streams (Science, Commerce, Humanities) preparing students for competitive exams and university success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Why Choose Us ──────────────────────────────────────────────── -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+
+      <div class="features-grid">
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/faculty'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Experienced Faculty</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/infrastructure'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+          <h3>Smart Classrooms</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/non-scholastic-programs'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-futbol"></i></div>
+          <h3>Sports &amp; Activities</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/results'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+          <h3>100% Results</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/infrastructure'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-flask"></i></div>
+          <h3>Advanced Labs</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/non-scholastic-programs'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-brain"></i></div>
+          <h3>Holistic Development</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/conveyance'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-bus"></i></div>
+          <h3>Safe Transportation</h3>
+        </div>
+
+        <div class="feature-item" onclick="window.location.href='https://allsaintspublicschool.com/page/library'" style="cursor:pointer;">
+          <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Resourceful Library</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Location ───────────────────────────────────────────────────── -->
+  <section class="location" id="location">
+    <div class="container">
+      <h2 class="section-title">Our Location</h2>
+
+      <div class="map-container">
+        <iframe
+          allowfullscreen=""
+          height="450"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63023.16974573701!2d76.737847!3d9.159154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06122967bf9519%3A0xca5e7eda531a60c4!2sAll%20Saints'%20Public%20School%20%26%20Junior%20College!5e0!3m2!1sen!2sus!4v1771396201754!5m2!1sen!2sus"
+          style="border:0;"
+          width="600"
+          title="All Saints Public School Location Map"
+        ></iframe>
+      </div>
+
+      <div class="map-info">
+        <h3 class="map-heading">Visit Our Campus</h3>
+        <p class="map-address">
+          All Saint's Public School,<br />
+          Adoor, Pathanamthitta<br />
+          PIN 691523
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Smooth Scroll Script ───────────────────────────────────────── -->
+  <script>
+    document.querySelectorAll('.cta-button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const loc = document.querySelector('.location');
+        if (loc) {
+          loc.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
