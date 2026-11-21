@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "academic_year": "2025-2026",
+    "standard": "Class XII",
+    "total_registered": 90,
+    "total_passed": 90,
+    "pass_percentage": "100.00",
+    "distinction_count": 52,
+    "remarks": "100% Pass record with outstanding full A1 distinctions in Science & Commerce.",
+    "created_at": "2026-11-06T04:46:09.000Z"
+  },
+  {
+    "id": 2,
+    "academic_year": "2025-2026",
+    "standard": "Class X",
+    "total_registered": 95,
+    "total_passed": 95,
+    "pass_percentage": "100.00",
+    "distinction_count": 61,
+    "remarks": "100% Pass record in Secondary School Examination AISSE.",
+    "created_at": "2026-11-06T04:46:09.000Z"
+  }
+]

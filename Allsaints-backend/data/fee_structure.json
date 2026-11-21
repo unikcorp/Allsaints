@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "academic_year": "2026-2027",
+    "grade_category": "Pre-Primary (LKG & UKG)",
+    "tuition_fee": "18000.00",
+    "annual_charges": "4500.00",
+    "computer_lab_fee": "1500.00",
+    "total_annual": "24000.00",
+    "payment_terms": "3 Term Installments (June, Oct, Jan)",
+    "official_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "academic_year": "2026-2027",
+    "grade_category": "Primary (Class I - V)",
+    "tuition_fee": "22000.00",
+    "annual_charges": "5000.00",
+    "computer_lab_fee": "2500.00",
+    "total_annual": "29500.00",
+    "payment_terms": "3 Term Installments (June, Oct, Jan)",
+    "official_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 3,
+    "academic_year": "2026-2027",
+    "grade_category": "Secondary (Class VI - X)",
+    "tuition_fee": "26000.00",
+    "annual_charges": "5500.00",
+    "computer_lab_fee": "3500.00",
+    "total_annual": "35000.00",
+    "payment_terms": "3 Term Installments (June, Oct, Jan)",
+    "official_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 4,
+    "academic_year": "2026-2027",
+    "grade_category": "Senior Secondary (Class XI - XII)",
+    "tuition_fee": "32000.00",
+    "annual_charges": "6000.00",
+    "computer_lab_fee": "4500.00",
+    "total_annual": "42500.00",
+    "payment_terms": "3 Term Installments (June, Oct, Jan)",
+    "official_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  }
+]

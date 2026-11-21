@@ -1,0 +1,30 @@
+[
+  {
+    "id": 2,
+    "ticket_no": "GRV-2026-6576",
+    "complainant_name": "testuser",
+    "user_type": "Parent",
+    "phone": "8574236914",
+    "email": "user@gmail.com",
+    "category": "Facilities",
+    "subject": "testuser",
+    "description": "testuser",
+    "status": "RESOLVED",
+    "resolution_notes": null,
+    "created_at": "2026-11-10T05:02:15.000Z"
+  },
+  {
+    "id": 1,
+    "ticket_no": "GRV-2026-6488",
+    "complainant_name": "test",
+    "user_type": "Parent",
+    "phone": "9876543210",
+    "email": "test@gmail.com",
+    "category": "Academics",
+    "subject": "asasasa",
+    "description": "test",
+    "status": "RESOLVED",
+    "resolution_notes": null,
+    "created_at": "2026-11-09T09:40:52.000Z"
+  }
+]

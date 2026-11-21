@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "academic_year": "2026-2027",
+    "title": "School Reopening for Academic Session 2026-27",
+    "event_type": "CELEBRATION",
+    "start_date": "2026-05-31T18:30:00.000Z",
+    "end_date": "2026-05-31T18:30:00.000Z",
+    "applicable_for": "All Classes",
+    "description": "Reopening prayer service, welcoming new students.",
+    "calendar_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "academic_year": "2026-2027",
+    "title": "First Mid-Term Assessments",
+    "event_type": "EXAM",
+    "start_date": "2026-07-19T18:30:00.000Z",
+    "end_date": "2026-07-24T18:30:00.000Z",
+    "applicable_for": "Class I to XII",
+    "description": "Periodic test 1 for primary and secondary sections.",
+    "calendar_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 3,
+    "academic_year": "2026-2027",
+    "title": "Onam Holidays",
+    "event_type": "VACATION",
+    "start_date": "2026-08-24T18:30:00.000Z",
+    "end_date": "2026-09-03T18:30:00.000Z",
+    "applicable_for": "All Classes",
+    "description": "Festival vacation and school cultural gathering.",
+    "calendar_pdf_url": null,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  }
+]

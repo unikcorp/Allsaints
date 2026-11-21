@@ -1,0 +1,132 @@
+[
+  {
+    "id": 4,
+    "title": "Karate Sessions",
+    "subtitle": "Build up Self defence",
+    "category": "Martial Arts",
+    "cover_image_url": "/images/school_content/1774685585-96686839769c78d9152c1b_WhatsApp_Image_2026-03-03_at_11.50.59_AM.jpeg",
+    "display_order": 1,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 1
+  },
+  {
+    "id": 1,
+    "title": "Campus Infrastructure & Smart Classrooms",
+    "subtitle": "State-of-the-Art Facilities",
+    "category": "Infrastructure",
+    "cover_image_url": "/images/infrastructure/infra-campus.jpg",
+    "display_order": 1,
+    "created_at": "2026-11-06T04:46:09.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 5,
+    "title": "Sports",
+    "subtitle": "Athletic Excellence & Champions",
+    "category": "Sports Day",
+    "cover_image_url": "/images/school_content/1774685426-47014966169c78cf275d5b_Screenshot_2026-03-28_133946.png",
+    "display_order": 2,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 1
+  },
+  {
+    "id": 2,
+    "title": "Annual Athletic Meet 2026",
+    "subtitle": "Sports & Physical Excellence",
+    "category": "Sports",
+    "cover_image_url": "/images/gallery/event-5.jpg",
+    "display_order": 2,
+    "created_at": "2026-11-06T04:46:09.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 6,
+    "title": "Nature club and farm visit",
+    "subtitle": "Exploring Nature",
+    "category": "Eco Club",
+    "cover_image_url": "/images/school_content/1774684577-113630572269c789a155891_farm.jpeg",
+    "display_order": 3,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 1
+  },
+  {
+    "id": 7,
+    "title": "Main Campus & Infrastructure Block",
+    "subtitle": "Eco-Friendly 10-Acre Campus",
+    "category": "Infrastructure",
+    "cover_image_url": "/images/school_content/1773902398-126526803569bb9a3e60523_infra.jpg",
+    "display_order": 4,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 8,
+    "title": "Educational Blocks & Laboratories",
+    "subtitle": "Modern Amenities & Practical Labs",
+    "category": "Facilities",
+    "cover_image_url": "/images/school_content/1773902398-212600336869bb9a3e5ae72_infra1.jpg",
+    "display_order": 5,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 9,
+    "title": "School Library & Resource Room",
+    "subtitle": "Rich Knowledge Repository",
+    "category": "Library",
+    "cover_image_url": "/images/school_content/1773902398-97681020769bb9a3e580eb_library.jpg",
+    "display_order": 6,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 10,
+    "title": "School Bus Fleet",
+    "subtitle": "Safe & Disciplined Transport",
+    "category": "Conveyance",
+    "cover_image_url": "/images/school_content/1773902602-131014106869bb9b0a29dea_bus.jpg",
+    "display_order": 7,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 11,
+    "title": "School Faculty & Mentors",
+    "subtitle": "Dedicated Teaching Staff",
+    "category": "Faculty",
+    "cover_image_url": "/images/school_content/1773902602-182554790869bb9b0a0ee16_faculty.jpg",
+    "display_order": 8,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 12,
+    "title": "CBSE Board Examination Toppers",
+    "subtitle": "Class XII & X Academic Laurels",
+    "category": "Academics",
+    "cover_image_url": "/images/school_content/1779345475-8217333446a0ea843eda53_WhatsApp_Image_2026-05-20_at_10.03.38_AM.jpeg",
+    "display_order": 9,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 13,
+    "title": "Campus Activity & Student Practice",
+    "subtitle": "All Saints Public School, Adoor",
+    "category": "Activities",
+    "cover_image_url": "/images/school_content/1773908752-173959853269bbb3108cd3c_WhatsApp_Image_2026-03-03_at_11.50.59_AM.jpeg",
+    "display_order": 10,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  },
+  {
+    "id": 14,
+    "title": "Sports & Field Day Highlights",
+    "subtitle": "All Saints Public School, Adoor",
+    "category": "Sports",
+    "cover_image_url": "/images/school_content/1773909027-4939578469bbb42338cc6_WhatsApp_Image_2026-03-03_at_11.54.31_AM_(1).jpeg",
+    "display_order": 11,
+    "created_at": "2026-11-06T07:12:07.000Z",
+    "is_featured": 0
+  }
+]

@@ -1,0 +1,816 @@
+[
+  {
+    "timestamp": "17/11/2026, 11:35:28 am",
+    "action": "DELETED",
+    "module": "Our Management",
+    "item": "TEST",
+    "details": {
+      "id": "13"
+    }
+  },
+  {
+    "timestamp": "17/11/2026, 11:35:11 am",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "TEST",
+    "details": {
+      "role": "TESTER",
+      "sub_role": "TEST",
+      "id": 13
+    }
+  },
+  {
+    "timestamp": "16/11/2026, 3:55:52 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": 2
+    }
+  },
+  {
+    "timestamp": "13/11/2026, 11:14:53 am",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": 2
+    }
+  },
+  {
+    "timestamp": "13/11/2026, 10:55:15 am",
+    "action": "ADDED",
+    "module": "News",
+    "item": "AI NEXUS – Futuristic Seminar on Artificial Intelligence",
+    "details": {
+      "category": "Campus Event",
+      "id": 17
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 12:14:57 pm",
+    "action": "SUBMITTED",
+    "module": "Contact Inquiry",
+    "item": "Commerce",
+    "details": {
+      "email": "tester@gmail.com",
+      "phone": "+91-7356804100"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 12:13:42 pm",
+    "action": "ADDED",
+    "module": "Gallery Video",
+    "item": "TSET",
+    "details": {
+      "category": "Clubs & Academics"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 12:03:42 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "TEST",
+    "details": {
+      "category": "Official Notice",
+      "id": 16
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:52:31 am",
+    "action": "ADDED",
+    "module": "News",
+    "item": "test",
+    "details": {
+      "category": "Official Notice",
+      "id": 15
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:50:54 am",
+    "action": "UPDATED",
+    "module": "Contact Status",
+    "item": "ID: 2",
+    "details": {
+      "status": "CONTACTED"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:47:58 am",
+    "action": "UPDATED",
+    "module": "Grievance Status",
+    "item": "ID: 2",
+    "details": {
+      "status": "RESOLVED"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:46:45 am",
+    "action": "DELETED",
+    "module": "Faculty",
+    "item": "ID: fac-1794464172834",
+    "details": {}
+  },
+  {
+    "timestamp": "12/11/2026, 11:46:25 am",
+    "action": "ADDED",
+    "module": "Faculty",
+    "item": "TEST",
+    "details": {
+      "department": "Higher Secondary and Secondary"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:45:47 am",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "TEST",
+    "details": {
+      "id": "16"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:45:30 am",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "TESTER (P/o TEST)",
+    "details": {
+      "designation": "Parent Rep (TESR)",
+      "committee_type": "PTA",
+      "id": 16
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:44:08 am",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "TESTER",
+    "details": {
+      "id": "15"
+    }
+  },
+  {
+    "timestamp": "12/11/2026, 11:43:53 am",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "TESTER",
+    "details": {
+      "designation": "TEST",
+      "committee_type": "PTA",
+      "id": 15
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 3:41:44 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "TESTER tester (Class 12)",
+    "details": {
+      "application_no": "ASPS-2026-6156",
+      "email": "tset@gmail.com",
+      "phone": "09876543210"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 3:36:48 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "tester TESTER (Playschool)",
+    "details": {
+      "application_no": "ASPS-2026-5300",
+      "email": "TESTER@GMAIL.COM",
+      "phone": "9876543211"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 3:31:45 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "tester tester (Playschool)",
+    "details": {
+      "application_no": "ASPS-2026-7034",
+      "email": "tester@gmail.com",
+      "phone": "9874563210"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 3:24:30 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "test test (Playschool)",
+    "details": {
+      "application_no": "ASPS-2026-1014",
+      "email": "test@gmail.com",
+      "phone": "9874563210"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 2:55:10 pm",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "test",
+    "details": {
+      "role": "test",
+      "sub_role": "test",
+      "id": 12
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:28:18 am",
+    "action": "DELETED",
+    "module": "News",
+    "item": "ID: 14",
+    "details": {}
+  },
+  {
+    "timestamp": "10/11/2026, 11:27:35 am",
+    "action": "ADDED",
+    "module": "News",
+    "item": "test",
+    "details": {
+      "category": "Official Notice",
+      "id": 14
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:24:59 am",
+    "action": "DELETED",
+    "module": "News",
+    "item": "ID: 13",
+    "details": {}
+  },
+  {
+    "timestamp": "10/11/2026, 11:23:59 am",
+    "action": "ADDED",
+    "module": "News",
+    "item": "Annual Sports Meet 2026",
+    "details": {
+      "category": "Campus Event",
+      "id": 13
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:14:19 am",
+    "action": "DELETED",
+    "module": "Faculty",
+    "item": "ID: fac-1794289435397",
+    "details": {}
+  },
+  {
+    "timestamp": "10/11/2026, 11:14:04 am",
+    "action": "ADDED",
+    "module": "Faculty",
+    "item": "TEST",
+    "details": {
+      "department": "Higher Secondary and Secondary"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:13:38 am",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "TEST",
+    "details": {
+      "id": "14"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:13:26 am",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "TEST (P/o TEST)",
+    "details": {
+      "designation": "Parent Rep (TEST)",
+      "committee_type": "PTA",
+      "id": 14
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:13:10 am",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "TEST",
+    "details": {
+      "id": "13"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:12:57 am",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "TEST (P/o TEST)",
+    "details": {
+      "designation": "Parent Rep (TEST)",
+      "committee_type": "PTA",
+      "id": 13
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:04:02 am",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "test",
+    "details": {
+      "id": "12"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 11:03:39 am",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "test (P/o test)",
+    "details": {
+      "designation": "Parent Rep (test)",
+      "committee_type": "PTA",
+      "id": 12
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:59:39 am",
+    "action": "DELETED",
+    "module": "Our Management",
+    "item": "test",
+    "details": {
+      "id": "11"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:59:19 am",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "test",
+    "details": {
+      "role": "test",
+      "sub_role": "twest",
+      "id": 11
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:57:55 am",
+    "action": "UPDATED",
+    "module": "Contact Status",
+    "item": "ID: 2",
+    "details": {
+      "status": "RESOLVED"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:56:38 am",
+    "action": "SUBMITTED",
+    "module": "Contact Inquiry",
+    "item": "ffs",
+    "details": {
+      "email": "sasa@gmail.com",
+      "phone": "+91-7356804100"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:44:29 am",
+    "action": "SUBMITTED",
+    "module": "Contact Inquiry",
+    "item": "Science",
+    "details": {
+      "email": "tset@gmail.com",
+      "phone": "+91-7356804100"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:39:53 am",
+    "action": "UPDATED",
+    "module": "Grievance Status",
+    "item": "ID: 1",
+    "details": {
+      "status": "RESOLVED"
+    }
+  },
+  {
+    "timestamp": "10/11/2026, 10:32:15 am",
+    "action": "SUBMITTED",
+    "module": "Grievance",
+    "item": "testuser",
+    "details": {
+      "ticket_no": "GRV-2026-6576",
+      "complainant_name": "testuser"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 3:10:52 pm",
+    "action": "SUBMITTED",
+    "module": "Grievance",
+    "item": "asasasa",
+    "details": {
+      "ticket_no": "GRV-2026-6488",
+      "complainant_name": "test"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:47:14 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "test",
+    "details": {
+      "category": "Official Notice",
+      "id": 12
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:42:11 pm",
+    "action": "DELETED",
+    "module": "News",
+    "item": "ID: 11",
+    "details": {}
+  },
+  {
+    "timestamp": "9/11/2026, 12:42:11 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Verify Live DB Sync (Updated)",
+    "details": {
+      "id": 11
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:42:11 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "Verify Live DB Sync",
+    "details": {
+      "category": "Official Notice",
+      "id": 11
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:27:08 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Admissions Open for Pre-Primary to Class XII (Session 2026-27)",
+    "details": {
+      "id": "3"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:27:08 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": "2"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:27:08 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Triumph of Excellence: Class XII CBSE Results 2026",
+    "details": {
+      "id": "1"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:26:06 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "Base64 Test",
+    "details": {
+      "category": "Official Notice",
+      "id": 10
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:25:35 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "FOOD",
+    "details": {
+      "category": "Official Notice",
+      "id": 9
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:19:33 pm",
+    "action": "DELETED",
+    "module": "News",
+    "item": "ID: 7",
+    "details": {}
+  },
+  {
+    "timestamp": "9/11/2026, 12:19:21 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "FOOD",
+    "details": {
+      "category": "Official Notice",
+      "id": 7
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:17:33 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Admissions Open for Pre-Primary to Class XII (Session 2026-27)",
+    "details": {
+      "id": "3"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:17:33 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": "2"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:17:33 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Triumph of Excellence: Class XII CBSE Results 2026",
+    "details": {
+      "id": "1"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 12:15:41 pm",
+    "action": "DELETED",
+    "module": "News",
+    "item": "ID: 6",
+    "details": {}
+  },
+  {
+    "timestamp": "9/11/2026, 12:15:25 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "Triumph of Excellence: Class XII CBSE Results 2026",
+    "details": {
+      "category": "Board Result",
+      "id": 6
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 11:57:23 am",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Admissions Open for Pre-Primary to Class XII (Session 2026-27)",
+    "details": {
+      "id": "3"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 11:57:23 am",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": "2"
+    }
+  },
+  {
+    "timestamp": "9/11/2026, 11:57:22 am",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Triumph of Excellence: Class XII CBSE Results 2026",
+    "details": {
+      "id": "1"
+    }
+  },
+  {
+    "timestamp": "7/11/2026, 12:34:29 pm",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "hghgh",
+    "details": {
+      "role": "hghghg",
+      "sub_role": "gdfdfd",
+      "id": 6
+    }
+  },
+  {
+    "timestamp": "7/11/2026, 12:31:20 pm",
+    "action": "UPDATED",
+    "module": "Annual Report",
+    "item": "Annual Report 2024-2025",
+    "details": {
+      "academic_year": "2024-2025",
+      "id": 1
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 4:05:02 pm",
+    "action": "UPDATED",
+    "module": "Annual Report",
+    "item": "Annual School Report 2024-2025",
+    "details": {
+      "academic_year": "2024-2025",
+      "id": 4
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 4:04:51 pm",
+    "action": "ADDED",
+    "module": "Annual Report",
+    "item": "Annual School Report 2025-2026",
+    "details": {
+      "academic_year": "2024-2025",
+      "id": 4
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 3:46:00 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "Test Student (Class 1)",
+    "details": {
+      "application_no": "ASPS-2026-2897",
+      "email": "test@example.com",
+      "phone": "9876543210"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 3:41:14 pm",
+    "action": "SUBMITTED",
+    "module": "Admission Application",
+    "item": "test test (UKG)",
+    "details": {
+      "application_no": "ASPS-2026-6747",
+      "email": "ffdfdfd@gmail.com",
+      "phone": "5432167890"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:26:32 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Class X CBSE Results 2026: A Legacy of Academic Excellence Continued",
+    "details": {
+      "id": "2"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:26:32 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Admissions Open for Pre-Primary to Class XII (Session 2026-27)",
+    "details": {
+      "id": "3"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:26:32 pm",
+    "action": "UPDATED",
+    "module": "News",
+    "item": "Triumph of Excellence: Class XII CBSE Results 2026",
+    "details": {
+      "id": "1"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:26:32 pm",
+    "action": "ADDED",
+    "module": "News",
+    "item": "ssdsds",
+    "details": {
+      "category": "Official Notice",
+      "id": 4
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:14:41 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 11",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:14:41 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 9",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:14:41 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 8",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:14:41 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 7",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:14:40 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 6",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:13:02 pm",
+    "action": "DELETED",
+    "module": "PTA & SMC",
+    "item": "ID: 5",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 12:03:05 pm",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "Fr. Philipose Charivupurayidathil ",
+    "details": {
+      "designation": "Manager",
+      "committee_type": "PTA"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:02:40 pm",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "sasasa",
+    "details": {
+      "designation": "asasa",
+      "committee_type": "PTA"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:02:28 pm",
+    "action": "ADDED",
+    "module": "Faculty",
+    "item": "sasa",
+    "details": {
+      "department": "Higher Secondary and Secondary",
+      "designation": "PGT"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:00:43 pm",
+    "action": "ADDED",
+    "module": "PTA & SMC",
+    "item": "Fr. Philipose Charivupurayidathil  a",
+    "details": {
+      "designation": "Manager",
+      "committee_type": "PTA"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:00:29 pm",
+    "action": "DELETED",
+    "module": "Our Management",
+    "item": "Fr DAniel",
+    "details": {
+      "id": "10"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:00:19 pm",
+    "action": "DELETED",
+    "module": "Our Management",
+    "item": "John",
+    "details": {
+      "id": "9"
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 12:00:02 pm",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "Fr DAniel",
+    "details": {
+      "role": "hghg",
+      "sub_role": "dfdfdf",
+      "id": 10
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 11:54:23 am",
+    "action": "ADDED",
+    "module": "Our Management",
+    "item": "John",
+    "details": {
+      "role": "abc",
+      "sub_role": "fdff",
+      "id": 9
+    }
+  },
+  {
+    "timestamp": "6/11/2026, 11:33:49 am",
+    "action": "DELETED",
+    "module": "Gallery",
+    "item": "album (ID: 3)",
+    "details": {}
+  },
+  {
+    "timestamp": "6/11/2026, 11:33:49 am",
+    "action": "ADDED",
+    "module": "Gallery Album",
+    "item": "VS Code Live Test Album",
+    "details": {
+      "category": "Campus Events",
+      "id": 3
+    }
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "His Excellency Most Rev. Dr. Samuel Mar Irenios",
+    "role": "Patron & President",
+    "sub_role": "Bishop of Pathanamthitta Diocese",
+    "photo_url": "/images/management/patron.jpg",
+    "quote": "To create creators of tomorrow — empowering young minds with divine wisdom, moral excellence, and academic distinction.",
+    "bio": "President of The Malankara Catholic Educational Society of the Diocese of Pathanamthitta.",
+    "display_order": 1,
+    "is_patron": 1,
+    "created_at": "2026-11-06T04:46:08.000Z",
+    "updated_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "name": "His Excellency Most Rev. Yoohanon Mar Chrysostom",
+    "role": "Former Patron",
+    "sub_role": "Bishop Emeritus, Diocese of Pathanamthitta",
+    "photo_url": "/images/management/former-patron.jpg",
+    "quote": "Guided the school with steadfast faith, laying foundations of academic rigor, character building, and holistic education.",
+    "bio": "Blessings that fostered generations of students since the inception of All Saints Public School in June 2002.",
+    "display_order": 2,
+    "is_patron": 1,
+    "created_at": "2026-11-06T04:46:08.000Z",
+    "updated_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Rev. Fr. Thomas Kumbakattil",
+    "role": "Founder Manager",
+    "sub_role": "Founder & Spiritual Architect",
+    "photo_url": "/images/management/founder-manager.jpg",
+    "quote": "Dedicated to holistic education that illuminates minds and uplifts rural communities.",
+    "bio": "Founded the institution in June 2002 under the blessings of Moran Mor Cyril Baselios Catholicose.",
+    "display_order": 3,
+    "is_patron": 0,
+    "created_at": "2026-11-06T04:46:08.000Z",
+    "updated_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 4,
+    "name": "Rev. Dr. James (Joseph) Stephen Olikal",
+    "role": "Principal",
+    "sub_role": "Academic & Administrative Head",
+    "photo_url": "/images/management/principal.jpg",
+    "quote": "Excellence in academics goes hand in hand with integrity, moral fortitude, and compassionate service.",
+    "bio": "Steering the faculty and student body toward continuous 100% CBSE board achievement.",
+    "display_order": 4,
+    "is_patron": 0,
+    "created_at": "2026-11-06T04:46:08.000Z",
+    "updated_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Fr. Philipose Charivupurayidathil (Jobin C Kurian)",
+    "role": "Director",
+    "sub_role": "Institutional Director",
+    "photo_url": "/images/management/director.jpg",
+    "quote": "Committed to providing world-class infrastructure and student-centered growth environments.",
+    "bio": "Guiding modern development, laboratory advancements, and campus operations.",
+    "display_order": 5,
+    "is_patron": 0,
+    "created_at": "2026-11-06T04:46:08.000Z",
+    "updated_at": "2026-11-06T04:46:08.000Z"
+  }
+]

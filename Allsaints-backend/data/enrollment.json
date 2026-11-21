@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "academic_year": "2025-2026",
+    "class_grade": "Class X",
+    "section": "A",
+    "stream": "General",
+    "boys_count": 22,
+    "girls_count": 23,
+    "total_count": 45,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "academic_year": "2025-2026",
+    "class_grade": "Class X",
+    "section": "B",
+    "stream": "General",
+    "boys_count": 21,
+    "girls_count": 24,
+    "total_count": 45,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 3,
+    "academic_year": "2025-2026",
+    "class_grade": "Class XII",
+    "section": "A",
+    "stream": "Science",
+    "boys_count": 25,
+    "girls_count": 23,
+    "total_count": 48,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 4,
+    "academic_year": "2025-2026",
+    "class_grade": "Class XII",
+    "section": "B",
+    "stream": "Commerce",
+    "boys_count": 18,
+    "girls_count": 22,
+    "total_count": 40,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  }
+]

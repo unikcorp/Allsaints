@@ -1,0 +1,50 @@
+[
+  {
+    "id": 3,
+    "committee_type": "PTA",
+    "name": "Adv. Mathew K. Thomas",
+    "designation": "PTA President",
+    "occupation": "Advocate, District Court",
+    "term_period": "2025-2026",
+    "phone_number": "+91 94471 23456",
+    "photo_url": null,
+    "display_order": 1,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 4,
+    "committee_type": "PTA",
+    "name": "Mrs. Priya S. Nair",
+    "designation": "PTA Vice President",
+    "occupation": "Higher Secondary Teacher",
+    "term_period": "2025-2026",
+    "phone_number": "+91 94472 34567",
+    "photo_url": null,
+    "display_order": 2,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 1,
+    "committee_type": "SMC",
+    "name": "Rev. Dr. James Stephen Olikal",
+    "designation": "Member Secretary / Principal",
+    "occupation": "Principal, All Saints Public School",
+    "term_period": "2025-2027",
+    "phone_number": "+91 4734 224455",
+    "photo_url": null,
+    "display_order": 1,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "committee_type": "SMC",
+    "name": "Fr. Philipose Charivupurayidathil",
+    "designation": "Manager Nominee",
+    "occupation": "Director, ASPS",
+    "term_period": "2025-2027",
+    "phone_number": "+91 4734 224456",
+    "photo_url": null,
+    "display_order": 2,
+    "created_at": "2026-11-06T04:46:08.000Z"
+  }
+]

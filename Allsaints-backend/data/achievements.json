@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "CBSE Cluster Athletics Championship",
+    "category": "SPORTS",
+    "level": "STATE",
+    "winner_name": "School Athletics Team",
+    "class_grade": "Class IX-XII",
+    "award_title": "Overall Runner-Up Trophy",
+    "event_date": "2026-01-17T18:30:00.000Z",
+    "photo_url": null,
+    "description": "Exceptional performance in 400m sprint and high jump events.",
+    "created_at": "2026-11-06T04:46:08.000Z"
+  },
+  {
+    "id": 2,
+    "title": "State Science & Robotics Fair",
+    "category": "SCIENCE_EXPO",
+    "level": "STATE",
+    "winner_name": "Master Joel K. Mathew & Team",
+    "class_grade": "Class XI Science",
+    "award_title": "First Prize & Gold Medal",
+    "event_date": "2025-11-19T18:30:00.000Z",
+    "photo_url": null,
+    "description": "Innovative automated smart campus irrigation system project.",
+    "created_at": "2026-11-06T04:46:08.000Z"
+  }
+]
