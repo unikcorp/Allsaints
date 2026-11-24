@@ -72,12 +72,9 @@ export default function Hero() {
   const [modalView, setModalView] = useState<"list" | "form">("list");
   const [editingSlideId, setEditingSlideId] = useState<number | string | null>(null);
   const [slideFormData, setSlideFormData] = useState({
-    title: "",
-    caption: "",
     image_url: "",
     display_order: 1,
   });
-  const [imageInputMode, setImageInputMode] = useState<"upload" | "url">("upload");
   const [uploadFileName, setUploadFileName] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -217,8 +214,6 @@ export default function Hero() {
   const handleOpenAdd = () => {
     setEditingSlideId(null);
     setSlideFormData({
-      title: "",
-      caption: "",
       image_url: "",
       display_order: campusSlides.length + 1,
     });
@@ -230,8 +225,6 @@ export default function Hero() {
   const handleOpenEdit = (slide: CampusSlide) => {
     setEditingSlideId(slide.id || null);
     setSlideFormData({
-      title: slide.title,
-      caption: slide.caption,
       image_url: slide.image,
       display_order: slide.display_order || 1,
     });
@@ -263,7 +256,7 @@ export default function Hero() {
   const handleSaveSlide = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!slideFormData.image_url.trim()) {
-      setModalError("Please upload an image or provide an image URL.");
+      setModalError("Please choose and upload an image file.");
       return;
     }
     setIsSaving(true);
@@ -272,14 +265,14 @@ export default function Hero() {
       const payload: EditableHeroSlide = {
         id: editingSlideId || undefined,
         image_url: slideFormData.image_url.trim(),
-        title: slideFormData.title.trim() || "All Saints Public School Campus",
-        caption: slideFormData.caption.trim(),
+        title: "All Saints Public School Campus",
+        caption: "",
         display_order: Number(slideFormData.display_order) || 1,
         is_active: 1,
       };
       const res = await apiSaveHeroSlide(payload);
       if (res && res.status === "success") {
-        setToastMessage(editingSlideId ? "Hero slide updated successfully!" : "New hero slide added!");
+        setToastMessage(editingSlideId ? "Slide photo updated successfully!" : "New slide photo added!");
         await loadHeroSlides();
         setModalView("list");
         setTimeout(() => setToastMessage(null), 3500);
@@ -714,7 +707,7 @@ export default function Hero() {
                         className="flex items-center gap-3.5 p-3 rounded-xl border border-slate-200 hover:border-[#0875C9] transition-all bg-[#F8FAFC]"
                       >
                         {/* Thumbnail */}
-                        <div className="relative w-20 h-14 rounded-lg overflow-hidden bg-slate-200 flex-shrink-0 border border-slate-300">
+                        <div className="relative w-24 h-16 rounded-lg overflow-hidden bg-slate-200 flex-shrink-0 border border-slate-300">
                           <Image
                             src={slide.image}
                             alt=""
@@ -724,18 +717,13 @@ export default function Hero() {
                           />
                         </div>
 
-                        {/* Title & Caption */}
+                        {/* Slide Info */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-bold bg-[#EAF4FF] text-[#0875C9] px-2 py-0.5 rounded">
-                              Slide #{slide.display_order || idx + 1}
-                            </span>
-                            <h4 className="font-bold text-sm text-[#092F78] truncate">
-                              {slide.title}
-                            </h4>
-                          </div>
-                          <p className="text-xs text-slate-500 truncate mt-0.5">
-                            {slide.caption || "No subtitle"}
+                          <span className="inline-block text-xs font-bold bg-[#EAF4FF] text-[#0875C9] px-2.5 py-0.5 rounded-full mb-1">
+                            Slide #{slide.display_order || idx + 1}
+                          </span>
+                          <p className="text-xs text-slate-500 truncate font-mono">
+                            {slide.image}
                           </p>
                         </div>
 
@@ -744,17 +732,17 @@ export default function Hero() {
                           <button
                             type="button"
                             onClick={() => handleOpenEdit(slide)}
-                            className="text-[#0875C9] hover:bg-[#EAF4FF] p-2 rounded-lg text-xs font-bold transition-colors cursor-pointer"
-                            title="Edit this slide"
+                            className="text-[#0875C9] hover:bg-[#EAF4FF] px-3 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                            title="Change this photo"
                           >
-                            ✏️ Edit
+                            ✏️ Change Photo
                           </button>
                           {slide.id && (
                             <button
                               type="button"
                               onClick={() => handleDeleteSlide(slide.id!)}
                               className="text-red-600 hover:bg-red-50 p-2 rounded-lg text-xs font-bold transition-colors cursor-pointer"
-                              title="Delete this slide"
+                              title="Delete this photo"
                             >
                               🗑️
                             </button>
@@ -769,7 +757,7 @@ export default function Hero() {
                 <form onSubmit={handleSaveSlide} className="space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                     <h4 className="font-bold text-base text-[#092F78]">
-                      {editingSlideId ? "Edit Hero Slide" : "Add New Campus Slide"}
+                      {editingSlideId ? "Change Slide Photo" : "Upload New Campus Photo"}
                     </h4>
                     <button
                       type="button"
@@ -787,134 +775,53 @@ export default function Hero() {
                     </div>
                   )}
 
-                  {/* Image Selector (File Upload or URL) */}
+                  {/* Image Upload Only */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1.5">
-                      Slide Photo *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-2">
+                      Choose Photo *
                     </label>
 
-                    <div className="flex gap-2 mb-2">
-                      <button
-                        type="button"
-                        onClick={() => setImageInputMode("upload")}
-                        className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-colors cursor-pointer ${
-                          imageInputMode === "upload"
-                            ? "bg-[#0875C9] text-white"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        📤 Upload Image File
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setImageInputMode("url")}
-                        className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-colors cursor-pointer ${
-                          imageInputMode === "url"
-                            ? "bg-[#0875C9] text-white"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        🔗 Image URL / Path
-                      </button>
-                    </div>
-
-                    {imageInputMode === "upload" ? (
-                      <div className="flex items-center gap-3">
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          accept="image/*"
-                          onChange={handleFileUpload}
-                          className="hidden"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => fileInputRef.current?.click()}
-                          disabled={isUploading}
-                          className="px-4 py-2 border-2 border-dashed border-[#0875C9] bg-[#EAF4FF] hover:bg-[#D9EEFF] text-[#0875C9] rounded-xl text-xs font-bold transition-colors cursor-pointer disabled:opacity-50"
-                        >
-                          {isUploading ? "Uploading Image..." : "Choose Image File from Computer"}
-                        </button>
-                        {uploadFileName && (
-                          <span className="text-xs text-slate-600 font-medium truncate max-w-xs">
-                            {uploadFileName}
-                          </span>
-                        )}
-                      </div>
-                    ) : (
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                       <input
-                        type="text"
-                        value={slideFormData.image_url}
-                        onChange={(e) =>
-                          setSlideFormData((prev) => ({ ...prev, image_url: e.target.value }))
-                        }
-                        placeholder="/images/home_slider/slider-1.jpg or https://..."
-                        className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileUpload}
+                        className="hidden"
                       />
-                    )}
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={isUploading}
+                        className="px-5 py-3 border-2 border-dashed border-[#0875C9] bg-[#EAF4FF] hover:bg-[#D9EEFF] text-[#0875C9] rounded-xl text-xs font-bold transition-colors cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
+                      >
+                        <span>📤</span>
+                        <span>{isUploading ? "Uploading Image..." : "Choose Image File from Computer"}</span>
+                      </button>
+                      {uploadFileName && (
+                        <span className="text-xs text-slate-600 font-medium truncate max-w-xs">
+                          {uploadFileName}
+                        </span>
+                      )}
+                    </div>
 
                     {/* Preview Image */}
                     {slideFormData.image_url && (
-                      <div className="mt-3 relative w-full h-36 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                        <Image
-                          src={slideFormData.image_url}
-                          alt="Preview"
-                          fill
-                          className="object-cover"
-                          unoptimized
-                        />
+                      <div className="mt-4">
+                        <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                          Photo Preview:
+                        </p>
+                        <div className="relative w-full h-48 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                          <Image
+                            src={slideFormData.image_url}
+                            alt="Preview"
+                            fill
+                            className="object-cover"
+                            unoptimized
+                          />
+                        </div>
                       </div>
                     )}
-                  </div>
-
-                  {/* Title */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
-                      Slide Title / Label *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={slideFormData.title}
-                      onChange={(e) =>
-                        setSlideFormData((prev) => ({ ...prev, title: e.target.value }))
-                      }
-                      placeholder="e.g. All Saints Public School Campus"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
-                    />
-                  </div>
-
-                  {/* Subtitle / Caption */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
-                      Subtitle / Caption
-                    </label>
-                    <input
-                      type="text"
-                      value={slideFormData.caption}
-                      onChange={(e) =>
-                        setSlideFormData((prev) => ({ ...prev, caption: e.target.value }))
-                      }
-                      placeholder="e.g. CBSE Affiliated · Pannivizha, Adoor"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
-                    />
-                  </div>
-
-                  {/* Display Order */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
-                      Display Order (1 = First Slide)
-                    </label>
-                    <input
-                      type="number"
-                      min={1}
-                      max={99}
-                      value={slideFormData.display_order}
-                      onChange={(e) =>
-                        setSlideFormData((prev) => ({ ...prev, display_order: Number(e.target.value) || 1 }))
-                      }
-                      className="w-28 px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
-                    />
                   </div>
 
                   {/* Form Footer */}
@@ -928,8 +835,8 @@ export default function Hero() {
                     </button>
                     <button
                       type="submit"
-                      disabled={isSaving}
-                      className="bg-[#0875C9] hover:bg-[#0066B5] text-white px-6 py-2 rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg disabled:opacity-60 cursor-pointer flex items-center gap-1.5"
+                      disabled={isSaving || !slideFormData.image_url}
+                      className="bg-[#0875C9] hover:bg-[#0066B5] text-white px-6 py-2 rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer flex items-center gap-1.5"
                     >
                       {isSaving ? (
                         <>
@@ -937,7 +844,7 @@ export default function Hero() {
                           <span>Saving...</span>
                         </>
                       ) : (
-                        <span>Save Hero Slide</span>
+                        <span>Save Slide Photo</span>
                       )}
                     </button>
                   </div>

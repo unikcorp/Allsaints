@@ -1,5 +1,14 @@
 [
   {
+    "timestamp": "24/11/2026, 11:20:04 am",
+    "action": "CREATED",
+    "module": "Hero Slide",
+    "item": "dghfd",
+    "details": {
+      "id": 6
+    }
+  },
+  {
     "timestamp": "24/11/2026, 11:11:34 am",
     "action": "CREATED",
     "module": "Hero Slide",
