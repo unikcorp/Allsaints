@@ -682,6 +682,50 @@ export async function apiDeleteContact(id: number | string) {
   }
 }
 
+// ─── 17. HERO CAMPUS SLIDES ───────────────────────────────────────────────
+export interface EditableHeroSlide {
+  id?: number | string;
+  image_url: string;
+  title: string;
+  caption?: string;
+  display_order?: number;
+  is_active?: boolean | number;
+}
+
+export async function apiGetHeroSlides(): Promise<EditableHeroSlide[] | null> {
+  try {
+    const res = await apiFetch(`${API_BASE_URL}/hero-slides`, { cache: "no-store" });
+    const json = await res.json();
+    return json.status === "success" ? json.data : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function apiSaveHeroSlide(slide: EditableHeroSlide) {
+  const isExistingNumericId = slide.id !== undefined && slide.id !== null && !isNaN(Number(slide.id));
+  const method = isExistingNumericId ? "PUT" : "POST";
+  try {
+    const res = await apiFetch(`${API_BASE_URL}/hero-slides`, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(slide),
+    });
+    return await res.json();
+  } catch (e: any) {
+    return { status: "error", message: e.message };
+  }
+}
+
+export async function apiDeleteHeroSlide(id: number | string) {
+  try {
+    const res = await apiFetch(`${API_BASE_URL}/hero-slides?id=${id}`, { method: "DELETE" });
+    return await res.json();
+  } catch (e: any) {
+    return { status: "error", message: e.message };
+  }
+}
+
 // ─── ALIASES FOR COMPONENT IMPORT CONVENIENCE ─────────────────────────────
 export const apiGetAcademicCalendar = apiGetCalendar;
 export const apiSaveParliamentMember = apiSaveParliament;

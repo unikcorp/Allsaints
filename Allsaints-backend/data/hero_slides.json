@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "image_url": "/images/home_slider/slider-1.jpg",
+    "title": "All Saints Public School Campus",
+    "caption": "CBSE Affiliated (930501) · LKG to Class XII · Pannivizha, Adoor",
+    "display_order": 1,
+    "is_active": 1,
+    "created_at": "2026-11-24T05:23:40.000Z",
+    "updated_at": "2026-11-24T05:23:40.000Z"
+  },
+  {
+    "id": 2,
+    "image_url": "/images/home_slider/slider-2.jpg",
+    "title": "Eco-Friendly Lush Green Grounds",
+    "caption": "Spacious Campus, Play Arenas & High-Tech Smart Classrooms",
+    "display_order": 2,
+    "is_active": 1,
+    "created_at": "2026-11-24T05:23:40.000Z",
+    "updated_at": "2026-11-24T05:23:40.000Z"
+  },
+  {
+    "id": 3,
+    "image_url": "/images/home_slider/slider-3.jpg",
+    "title": "Nurturing Mind, Body & Spirit",
+    "caption": "To Create Creators · Holistic Academic & Moral Excellence",
+    "display_order": 3,
+    "is_active": 1,
+    "created_at": "2026-11-24T05:23:40.000Z",
+    "updated_at": "2026-11-24T05:23:40.000Z"
+  },
+  {
+    "id": 4,
+    "image_url": "/images/school_content/1773902398-126526803569bb9a3e60523_infra.jpg",
+    "title": "State-of-the-Art Infrastructure",
+    "caption": "Future-Ready Learning with 100% CBSE Success Record",
+    "display_order": 4,
+    "is_active": 1,
+    "created_at": "2026-11-24T05:23:40.000Z",
+    "updated_at": "2026-11-24T05:23:40.000Z"
+  },
+  {
+    "id": 5,
+    "image_url": "/uploads/asps_1795498885120_240164254.png",
+    "title": "test",
+    "caption": "test",
+    "display_order": 5,
+    "is_active": 1,
+    "created_at": "2026-11-24T05:41:34.000Z",
+    "updated_at": "2026-11-24T05:41:34.000Z"
+  }
+]

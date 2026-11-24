@@ -41,7 +41,7 @@ if (file_exists($envFile) && is_readable($envFile)) {
 // 2. Resolve Database Credentials (Hostinger VPS Defaults)
 $host = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? ($_SERVER['DB_HOST'] ?? '127.0.0.1'));
 $port = getenv('DB_PORT') ?: ($_ENV['DB_PORT'] ?? ($_SERVER['DB_PORT'] ?? '3306'));
-$db   = getenv('DB_NAME') ?: ($_ENV['DB_NAME'] ?? ($_SERVER['DB_NAME'] ?? 'allsaints_school_db'));
+$db   = getenv('DB_NAME') ?: ($_ENV['DB_NAME'] ?? ($_SERVER['DB_NAME'] ?? 'allsaints'));
 $user = getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? ($_SERVER['DB_USER'] ?? 'allsaints-admin'));
 
 // Support DB_PASSWORD and DB_PASS

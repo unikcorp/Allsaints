@@ -142,7 +142,7 @@ const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'allsaints_school_db',
+  database: process.env.DB_NAME || 'allsaints',
   port: Number(process.env.DB_PORT) || 3306,
   waitForConnections: true,
   connectionLimit: 10,
@@ -152,7 +152,7 @@ const pool = mysql.createPool({
 // Test Database Connection & Ensure Column Sizes
 pool.getConnection()
   .then(async conn => {
-    console.log(`[Database] Successfully connected to MySQL: ${process.env.DB_NAME || 'allsaints_school_db'}`);
+    console.log(`[Database] Successfully connected to MySQL: ${process.env.DB_NAME || 'allsaints'}`);
     conn.release();
     try {
       // Ensure photo_url, quote, and bio use LONGTEXT so Base64 and long text never fail
@@ -290,7 +290,8 @@ async function syncAllModulesToDisk() {
     await syncTableToJson('statutory_documents', 'documents.json', 'display_order ASC');
     await syncTableToJson('complaints_grievances', 'complaints.json', 'created_at DESC');
     await syncTableToJson('contact_enquiries', 'contact_enquiries.json', 'created_at DESC');
-    console.log('[VS Code Live Sync] All 16 school modules mirrored to backend/data/ for VS Code view.');
+    await syncTableToJson('hero_slides', 'hero_slides.json', 'display_order ASC, id ASC');
+    console.log('[VS Code Live Sync] All 17 school modules mirrored to backend/data/ for VS Code view.');
   } catch (err) {
     console.error('Error syncing modules to disk on startup:', err.message);
   }
@@ -327,7 +328,7 @@ app.get('/', (req, res) => {
     status: 'ONLINE',
     version: '1.0.0',
     port: PORT,
-    database: process.env.DB_NAME || 'allsaints_school_db',
+    database: process.env.DB_NAME || 'allsaints',
     modules: 16
   });
 });
@@ -1404,7 +1405,83 @@ app.delete('/api/contact', async (req, res) => {
   }
 });
 
-// ─── 17. VS CODE LIVE ACTIVITY LOG ────────────────────────────────────────
+// ─── 17. HERO CAMPUS SLIDES ───────────────────────────────────────────────
+app.get('/api/hero-slides', async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      'SELECT * FROM hero_slides WHERE is_active=1 ORDER BY display_order ASC, id ASC'
+    );
+    res.json({ status: 'success', data: rows });
+  } catch (err) {
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+app.post('/api/hero-slides', async (req, res) => {
+  try {
+    const { image_url, title, caption, display_order, is_active } = req.body;
+    if (!image_url) {
+      return res.status(400).json({ status: 'error', message: 'Image URL is required' });
+    }
+    const [result] = await pool.query(
+      'INSERT INTO hero_slides (image_url, title, caption, display_order, is_active) VALUES (?, ?, ?, ?, ?)',
+      [
+        image_url,
+        title || 'All Saints Public School Campus',
+        caption || '',
+        display_order !== undefined ? Number(display_order) : 1,
+        is_active !== undefined ? (is_active ? 1 : 0) : 1,
+      ]
+    );
+    await syncTableToJson('hero_slides', 'hero_slides.json', 'display_order ASC, id ASC');
+    logActivity('CREATED', 'Hero Slide', title || 'Campus Slide', { id: result.insertId });
+    res.json({ status: 'success', message: 'Hero slide created', id: result.insertId });
+  } catch (err) {
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+app.put('/api/hero-slides', async (req, res) => {
+  try {
+    const { id, image_url, title, caption, display_order, is_active } = req.body;
+    if (!id) {
+      return res.status(400).json({ status: 'error', message: 'Slide ID is required' });
+    }
+    await pool.query(
+      'UPDATE hero_slides SET image_url=?, title=?, caption=?, display_order=?, is_active=? WHERE id=?',
+      [
+        image_url,
+        title || 'All Saints Public School Campus',
+        caption || '',
+        display_order !== undefined ? Number(display_order) : 1,
+        is_active !== undefined ? (is_active ? 1 : 0) : 1,
+        id,
+      ]
+    );
+    await syncTableToJson('hero_slides', 'hero_slides.json', 'display_order ASC, id ASC');
+    logActivity('UPDATED', 'Hero Slide', `ID: ${id}`, { title });
+    res.json({ status: 'success', message: 'Hero slide updated' });
+  } catch (err) {
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+app.delete('/api/hero-slides', async (req, res) => {
+  try {
+    const id = req.query.id || req.body.id;
+    if (!id) {
+      return res.status(400).json({ status: 'error', message: 'Slide ID is required' });
+    }
+    await pool.query('DELETE FROM hero_slides WHERE id=?', [id]);
+    await syncTableToJson('hero_slides', 'hero_slides.json', 'display_order ASC, id ASC');
+    logActivity('DELETED', 'Hero Slide', `ID: ${id}`);
+    res.json({ status: 'success', message: 'Hero slide deleted' });
+  } catch (err) {
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+// ─── 18. VS CODE LIVE ACTIVITY LOG ────────────────────────────────────────
 app.get('/api/activity-log', (req, res) => {
   const logFile = path.join(dataDir, 'activity_log.json');
   if (fs.existsSync(logFile)) {
@@ -1439,7 +1516,7 @@ const server = app.listen(PORT, () => {
   console.log(`🏫 All Saints Public School API Server`);
   console.log(`🚀 Running at: http://localhost:${PORT}`);
   console.log(`📁 Uploads at: http://localhost:${PORT}/uploads`);
-  console.log(`🗄️  Database:   MySQL (${process.env.DB_NAME || 'allsaints_school_db'})`);
+  console.log(`🗄️  Database:   MySQL (${process.env.DB_NAME || 'allsaints'})`);
   console.log(`=======================================================`);
 });
 

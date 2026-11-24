@@ -3,11 +3,11 @@
 -- Database: allsaints_school_db
 -- ========================================================================
 
-CREATE DATABASE IF NOT EXISTS `allsaints_school_db`
+CREATE DATABASE IF NOT EXISTS `allsaints`
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;
 
-USE `allsaints_school_db`;
+USE `allsaints`;
 
 -- 0. ADMIN USERS
 CREATE TABLE IF NOT EXISTS `admin_users` (

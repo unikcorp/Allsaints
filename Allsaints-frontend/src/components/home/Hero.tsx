@@ -1,53 +1,111 @@
 ﻿"use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   EditableNews,
   DEFAULT_NEWS,
   getStoredNews,
+  isAdminAuthenticated,
 } from "@/utils/adminStorage";
-import { apiGetNews } from "@/utils/apiService";
+import {
+  apiGetNews,
+  apiGetHeroSlides,
+  apiSaveHeroSlide,
+  apiDeleteHeroSlide,
+  apiUploadFile,
+  EditableHeroSlide,
+} from "@/utils/apiService";
 
 interface CampusSlide {
+  id?: number | string;
   image: string;
   title: string;
   caption: string;
+  display_order?: number;
 }
 
-const HERO_CAMPUS_SLIDES: CampusSlide[] = [
+const DEFAULT_CAMPUS_SLIDES: CampusSlide[] = [
   {
+    id: 1,
     image: "/images/home_slider/slider-1.jpg",
     title: "All Saints Public School Campus",
     caption: "CBSE Affiliated (930501) · LKG to Class XII · Pannivizha, Adoor",
+    display_order: 1,
   },
   {
+    id: 2,
     image: "/images/home_slider/slider-2.jpg",
     title: "Eco-Friendly Lush Green Grounds",
     caption: "Spacious Campus, Play Arenas & High-Tech Smart Classrooms",
+    display_order: 2,
   },
   {
+    id: 3,
     image: "/images/home_slider/slider-3.jpg",
     title: "Nurturing Mind, Body & Spirit",
     caption: "To Create Creators · Holistic Academic & Moral Excellence",
+    display_order: 3,
   },
   {
+    id: 4,
     image: "/images/school_content/1773902398-126526803569bb9a3e60523_infra.jpg",
     title: "State-of-the-Art Infrastructure",
     caption: "Future-Ready Learning with 100% CBSE Success Record",
+    display_order: 4,
   },
 ];
 
 export default function Hero() {
   const [campusSlide, setCampusSlide] = useState(0);
+  const [campusSlides, setCampusSlides] = useState<CampusSlide[]>(DEFAULT_CAMPUS_SLIDES);
   const [newsSlide, setNewsSlide] = useState(0);
   const [isCampusPaused, setIsCampusPaused] = useState(false);
   const [isNewsPaused, setIsNewsPaused] = useState(false);
   const [newsList, setNewsList] = useState<EditableNews[]>(DEFAULT_NEWS);
   const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
 
+  // ─── ADMIN EDIT STATE ───────────────────────────────────────────────────
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showManageModal, setShowManageModal] = useState(false);
+  const [modalView, setModalView] = useState<"list" | "form">("list");
+  const [editingSlideId, setEditingSlideId] = useState<number | string | null>(null);
+  const [slideFormData, setSlideFormData] = useState({
+    title: "",
+    caption: "",
+    image_url: "",
+    display_order: 1,
+  });
+  const [imageInputMode, setImageInputMode] = useState<"upload" | "url">("upload");
+  const [uploadFileName, setUploadFileName] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [modalError, setModalError] = useState("");
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Load live slides from database
+  const loadHeroSlides = useCallback(async () => {
+    try {
+      const live = await apiGetHeroSlides();
+      if (live && Array.isArray(live) && live.length > 0) {
+        const mapped: CampusSlide[] = live.map((s: any) => ({
+          id: s.id,
+          image: s.image_url,
+          title: s.title || "All Saints Public School Campus",
+          caption: s.caption || "",
+          display_order: s.display_order || 1,
+        }));
+        setCampusSlides(mapped);
+      }
+    } catch {}
+  }, []);
+
   useEffect(() => {
+    setIsAdmin(isAdminAuthenticated());
+    loadHeroSlides();
+
     setNewsList(getStoredNews());
     apiGetNews().then((data) => {
       if (data && Array.isArray(data) && data.length > 0) {
@@ -65,16 +123,16 @@ export default function Hero() {
         setNewsList(mapped);
       }
     });
-  }, []);
+  }, [loadHeroSlides]);
 
   // Campus background slider handlers
   const nextCampusSlide = useCallback(() => {
-    setCampusSlide((prev) => (prev + 1) % HERO_CAMPUS_SLIDES.length);
-  }, []);
+    setCampusSlide((prev) => (prev + 1) % (campusSlides.length || 1));
+  }, [campusSlides.length]);
 
   const prevCampusSlide = useCallback(() => {
-    setCampusSlide((prev) => (prev - 1 + HERO_CAMPUS_SLIDES.length) % HERO_CAMPUS_SLIDES.length);
-  }, []);
+    setCampusSlide((prev) => (prev - 1 + (campusSlides.length || 1)) % (campusSlides.length || 1));
+  }, [campusSlides.length]);
 
   // Daily News slider handlers
   const nextNewsSlide = useCallback(() => {
@@ -155,6 +213,102 @@ export default function Hero() {
     setMouseStartX(null);
   };
 
+  // Admin Slide Handlers
+  const handleOpenAdd = () => {
+    setEditingSlideId(null);
+    setSlideFormData({
+      title: "",
+      caption: "",
+      image_url: "",
+      display_order: campusSlides.length + 1,
+    });
+    setUploadFileName("");
+    setModalError("");
+    setModalView("form");
+  };
+
+  const handleOpenEdit = (slide: CampusSlide) => {
+    setEditingSlideId(slide.id || null);
+    setSlideFormData({
+      title: slide.title,
+      caption: slide.caption,
+      image_url: slide.image,
+      display_order: slide.display_order || 1,
+    });
+    setUploadFileName("");
+    setModalError("");
+    setModalView("form");
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setIsUploading(true);
+    setModalError("");
+    setUploadFileName(file.name);
+    try {
+      const res = await apiUploadFile(file);
+      if (res && res.success && res.url) {
+        setSlideFormData((prev) => ({ ...prev, image_url: res.url }));
+      } else {
+        setModalError(res?.error || "Failed to upload file");
+      }
+    } catch (err: any) {
+      setModalError(err?.message || "File upload error");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleSaveSlide = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!slideFormData.image_url.trim()) {
+      setModalError("Please upload an image or provide an image URL.");
+      return;
+    }
+    setIsSaving(true);
+    setModalError("");
+    try {
+      const payload: EditableHeroSlide = {
+        id: editingSlideId || undefined,
+        image_url: slideFormData.image_url.trim(),
+        title: slideFormData.title.trim() || "All Saints Public School Campus",
+        caption: slideFormData.caption.trim(),
+        display_order: Number(slideFormData.display_order) || 1,
+        is_active: 1,
+      };
+      const res = await apiSaveHeroSlide(payload);
+      if (res && res.status === "success") {
+        setToastMessage(editingSlideId ? "Hero slide updated successfully!" : "New hero slide added!");
+        await loadHeroSlides();
+        setModalView("list");
+        setTimeout(() => setToastMessage(null), 3500);
+      } else {
+        setModalError(res?.message || "Failed to save slide");
+      }
+    } catch (err: any) {
+      setModalError(err?.message || "Network error while saving");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleDeleteSlide = async (id: number | string) => {
+    if (!confirm("Are you sure you want to delete this campus slider photo?")) return;
+    try {
+      const res = await apiDeleteHeroSlide(id);
+      if (res && res.status === "success") {
+        setToastMessage("Hero slide deleted successfully.");
+        await loadHeroSlides();
+        setTimeout(() => setToastMessage(null), 3500);
+      } else {
+        alert(res?.message || "Failed to delete slide");
+      }
+    } catch (err: any) {
+      alert(err?.message || "Error deleting slide");
+    }
+  };
+
   return (
     <section
       className="relative w-full overflow-hidden bg-white border-b border-[#D8EAF8] flex flex-col lg:flex-row items-stretch"
@@ -168,13 +322,29 @@ export default function Hero() {
         onTouchStart={handleCampusTouchStart}
         onTouchEnd={handleCampusTouchEnd}
       >
+        {/* Admin Management Trigger Button (Only visible to authenticated administrators) */}
+        {isAdmin && (
+          <button
+            type="button"
+            onClick={() => {
+              setModalView("list");
+              setShowManageModal(true);
+            }}
+            className="absolute top-4 left-4 z-30 inline-flex items-center gap-1.5 bg-[#FFB900] hover:bg-[#E0A300] text-[#092F78] text-xs font-sans font-bold px-3.5 py-1.5 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer border border-white/50"
+            title="Administrator: Manage Campus Photos"
+          >
+            <span>✏️</span>
+            <span>Edit Hero Photos</span>
+          </button>
+        )}
+
         {/* Full Image Slider Track (Cover, full height, no white fade, no blur) */}
         <div
           className="absolute inset-0 flex h-full w-full transition-transform duration-700 ease-in-out z-0"
           style={{ transform: `translateX(-${campusSlide * 100}%)` }}
         >
-          {HERO_CAMPUS_SLIDES.map((slide, index) => (
-            <div key={slide.image} className="relative h-full w-full flex-shrink-0">
+          {campusSlides.map((slide, index) => (
+            <div key={slide.id || slide.image} className="relative h-full w-full flex-shrink-0">
               <Image
                 src={slide.image}
                 alt={slide.title}
@@ -324,7 +494,7 @@ export default function Hero() {
 
         {/* Small Dot Indicators (Bottom Center of Carousel, active is solid white) */}
         <div className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/25 backdrop-blur-xs px-2.5 py-1 rounded-full">
-          {HERO_CAMPUS_SLIDES.map((_, i) => (
+          {campusSlides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCampusSlide(i)}
@@ -486,6 +656,297 @@ export default function Hero() {
           )}
         </div>
       </div>
+
+      {/* ─── ADMIN HERO SLIDES MANAGEMENT MODAL ───────────────────────── */}
+      {isAdmin && showManageModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200"
+        >
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 bg-[#092F78] text-white">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">📸</span>
+                <h3 className="font-serif font-bold text-lg">Manage Hero Campus Slider Photos</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowManageModal(false)}
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer text-lg"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Notification Toast */}
+            {toastMessage && (
+              <div className="bg-emerald-50 border-b border-emerald-200 px-6 py-2.5 text-xs text-emerald-800 font-bold flex items-center gap-2">
+                <span>✓</span>
+                <span>{toastMessage}</span>
+              </div>
+            )}
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto flex-1 font-sans">
+              {modalView === "list" ? (
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-xs text-slate-500">
+                      These photos rotate automatically in the homepage hero carousel. You can add, edit, or delete slides.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={handleOpenAdd}
+                      className="bg-[#0875C9] hover:bg-[#0066B5] text-white text-xs font-bold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer flex-shrink-0"
+                    >
+                      <span>+ Add New Slide</span>
+                    </button>
+                  </div>
+
+                  {/* List of current slides */}
+                  <div className="space-y-3">
+                    {campusSlides.map((slide, idx) => (
+                      <div
+                        key={slide.id || idx}
+                        className="flex items-center gap-3.5 p-3 rounded-xl border border-slate-200 hover:border-[#0875C9] transition-all bg-[#F8FAFC]"
+                      >
+                        {/* Thumbnail */}
+                        <div className="relative w-20 h-14 rounded-lg overflow-hidden bg-slate-200 flex-shrink-0 border border-slate-300">
+                          <Image
+                            src={slide.image}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            unoptimized
+                          />
+                        </div>
+
+                        {/* Title & Caption */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold bg-[#EAF4FF] text-[#0875C9] px-2 py-0.5 rounded">
+                              Slide #{slide.display_order || idx + 1}
+                            </span>
+                            <h4 className="font-bold text-sm text-[#092F78] truncate">
+                              {slide.title}
+                            </h4>
+                          </div>
+                          <p className="text-xs text-slate-500 truncate mt-0.5">
+                            {slide.caption || "No subtitle"}
+                          </p>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => handleOpenEdit(slide)}
+                            className="text-[#0875C9] hover:bg-[#EAF4FF] p-2 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                            title="Edit this slide"
+                          >
+                            ✏️ Edit
+                          </button>
+                          {slide.id && (
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteSlide(slide.id!)}
+                              className="text-red-600 hover:bg-red-50 p-2 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                              title="Delete this slide"
+                            >
+                              🗑️
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                /* Form View */
+                <form onSubmit={handleSaveSlide} className="space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <h4 className="font-bold text-base text-[#092F78]">
+                      {editingSlideId ? "Edit Hero Slide" : "Add New Campus Slide"}
+                    </h4>
+                    <button
+                      type="button"
+                      onClick={() => setModalView("list")}
+                      className="text-xs text-slate-500 hover:text-slate-800 font-bold cursor-pointer"
+                    >
+                      &larr; Back to List
+                    </button>
+                  </div>
+
+                  {modalError && (
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl flex items-center gap-2">
+                      <span>⚠️</span>
+                      <span>{modalError}</span>
+                    </div>
+                  )}
+
+                  {/* Image Selector (File Upload or URL) */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1.5">
+                      Slide Photo *
+                    </label>
+
+                    <div className="flex gap-2 mb-2">
+                      <button
+                        type="button"
+                        onClick={() => setImageInputMode("upload")}
+                        className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-colors cursor-pointer ${
+                          imageInputMode === "upload"
+                            ? "bg-[#0875C9] text-white"
+                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        📤 Upload Image File
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setImageInputMode("url")}
+                        className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-colors cursor-pointer ${
+                          imageInputMode === "url"
+                            ? "bg-[#0875C9] text-white"
+                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        🔗 Image URL / Path
+                      </button>
+                    </div>
+
+                    {imageInputMode === "upload" ? (
+                      <div className="flex items-center gap-3">
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/*"
+                          onChange={handleFileUpload}
+                          className="hidden"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => fileInputRef.current?.click()}
+                          disabled={isUploading}
+                          className="px-4 py-2 border-2 border-dashed border-[#0875C9] bg-[#EAF4FF] hover:bg-[#D9EEFF] text-[#0875C9] rounded-xl text-xs font-bold transition-colors cursor-pointer disabled:opacity-50"
+                        >
+                          {isUploading ? "Uploading Image..." : "Choose Image File from Computer"}
+                        </button>
+                        {uploadFileName && (
+                          <span className="text-xs text-slate-600 font-medium truncate max-w-xs">
+                            {uploadFileName}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <input
+                        type="text"
+                        value={slideFormData.image_url}
+                        onChange={(e) =>
+                          setSlideFormData((prev) => ({ ...prev, image_url: e.target.value }))
+                        }
+                        placeholder="/images/home_slider/slider-1.jpg or https://..."
+                        className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
+                      />
+                    )}
+
+                    {/* Preview Image */}
+                    {slideFormData.image_url && (
+                      <div className="mt-3 relative w-full h-36 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                        <Image
+                          src={slideFormData.image_url}
+                          alt="Preview"
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Title */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
+                      Slide Title / Label *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={slideFormData.title}
+                      onChange={(e) =>
+                        setSlideFormData((prev) => ({ ...prev, title: e.target.value }))
+                      }
+                      placeholder="e.g. All Saints Public School Campus"
+                      className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
+                    />
+                  </div>
+
+                  {/* Subtitle / Caption */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
+                      Subtitle / Caption
+                    </label>
+                    <input
+                      type="text"
+                      value={slideFormData.caption}
+                      onChange={(e) =>
+                        setSlideFormData((prev) => ({ ...prev, caption: e.target.value }))
+                      }
+                      placeholder="e.g. CBSE Affiliated · Pannivizha, Adoor"
+                      className="w-full px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
+                    />
+                  </div>
+
+                  {/* Display Order */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#092F78] mb-1">
+                      Display Order (1 = First Slide)
+                    </label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={99}
+                      value={slideFormData.display_order}
+                      onChange={(e) =>
+                        setSlideFormData((prev) => ({ ...prev, display_order: Number(e.target.value) || 1 }))
+                      }
+                      className="w-28 px-4 py-2 border border-slate-300 rounded-xl text-xs font-sans focus:outline-none focus:border-[#0875C9]"
+                    />
+                  </div>
+
+                  {/* Form Footer */}
+                  <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100">
+                    <button
+                      type="button"
+                      onClick={() => setModalView("list")}
+                      className="px-5 py-2 border border-slate-300 rounded-full text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSaving}
+                      className="bg-[#0875C9] hover:bg-[#0066B5] text-white px-6 py-2 rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg disabled:opacity-60 cursor-pointer flex items-center gap-1.5"
+                    >
+                      {isSaving ? (
+                        <>
+                          <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <span>Saving...</span>
+                        </>
+                      ) : (
+                        <span>Save Hero Slide</span>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -2,7 +2,7 @@
 
 1. DNS: A record `allsaints` -> VPS IP. Install nginx, mysql, node 20, pm2, certbot.
 2. Copy `Allsaints-backend` and `Allsaints-frontend` to `/var/www/allsaints/` (skip node_modules, .next, .git, *.zip).
-3. MySQL: create DB + user, then `mysql allsaints_school_db < Allsaints-backend/database.sql`.
+3. MySQL: create DB + user, then `mysql allsaints < Allsaints-backend/database.sql`.
 4. Backend: `cp .env.example .env`, fill DB_* and FRONTEND_URL, and set a real JWT_SECRET:
    `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
    (the server refuses to start in production with a weak/sample secret).
